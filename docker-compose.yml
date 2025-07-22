@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo
+    container_name: cartwish-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+  backend:
+    build:
+      context: ./backend
+    container_name: cartwish-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE=mongodb://mongo:27017/cartwish
+      - JWTSECRET=cartwish_secret
+    depends_on:
+      - mongo
+  frontend:
+    build:
+      context: ./frontendJS
+    container_name: cartwish-frontend
+    ports:
+      - "8080:80"
+    
+
+volumes:
+  mongo-data:

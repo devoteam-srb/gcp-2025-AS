@@ -1,0 +1,6 @@
+infra/.terraform/
+infra/terraform.tfstate*
+infra/.terraform.lock.hcl
+
+**/node_modules/
+**/.env
