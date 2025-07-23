@@ -14,6 +14,11 @@ const productsRoutes = require("./routes/products");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order");
 
+// const corsOptions = {
+//   origin: "https://cartwish-frontend-lumvrlx7ea-ew.a.run.app",  // tvoj frontend URL
+//   optionsSuccessStatus: 200
+// };
+
 // middlewares
 app.use(cors());
 app.use(bodyParser.json());
